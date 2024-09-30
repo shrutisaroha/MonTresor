@@ -1,0 +1,712 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MonTrésor</title>
+
+  <link rel="shortcut icon" href="icon.png" />
+
+  <!-- 
+    - custom css link
+  -->
+  <link rel="stylesheet" href="./assets/css/style.css" />
+
+  <!-- 
+    - google font link
+  -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet" />
+
+  <!-- 
+    - preload images
+  -->
+  <link rel="preload" as="image" href="./assets/images/logo.png" />
+  <link rel="preload" as="image" href="./assets/images/hero-banner-1.png" />
+  <link rel="preload" as="image" href="./assets/images/hero-banner-2.png" />
+  <link rel="preload" as="image" href="./assets/images/hero-banner-3.png" />
+</head>
+
+<body id="top">
+  <!-- 
+    - #HEADER
+  -->
+
+  <header class="header">
+    <div class="alert">
+      <div class="container">
+        <p class="alert-text">Free Shipping On All U.S. Orders $50+</p>
+      </div>
+    </div>
+
+    <div class="header-top" data-header>
+      <div class="container">
+        <button class="nav-open-btn" aria-label="open menu" data-nav-toggler>
+          <span class="line line-1"></span>
+          <span class="line line-2"></span>
+          <span class="line line-3"></span>
+        </button>
+
+        <div class="input-wrapper">
+          <input type="search" name="search" placeholder="Search product" class="search-field" />
+
+          <button class="search-submit" aria-label="search">
+            <ion-icon name="search-outline" aria-hidden="true"></ion-icon>
+          </button>
+        </div>
+
+        <a href="#" class="logo">
+          <img src="./assets/images/logo.png" width="179" height="26" alt="MonTresor" />
+        </a>
+
+        <div class="header-actions">
+          <button class="header-action-btn" aria-label="user">
+            <a href="log.html" onclick=
+            "document.getElementById('id01').style.display='block'" style="width:auto;"><ion-icon name="person-outline" aria-hidden="true" aria-hidden="true"></ion-icon></a>
+          </button>
+
+          <button class="header-action-btn" aria-label="favourite item">
+            <ion-icon name="star-outline" aria-hidden="true" aria-hidden="true"></ion-icon>
+
+            <span class="btn-badge">0</span>
+          </button>
+
+          <button class="header-action-btn" aria-label="cart item">
+            <data class="btn-text" value="0">$0.00</data>
+
+            <ion-icon name="bag-handle-outline" aria-hidden="true" aria-hidden="true"></ion-icon>
+
+            <span class="btn-badge">0</span>
+          </button>
+        </div>
+
+        <nav class="navbar">
+          <ul class="navbar-list">
+            <li>
+              <a href="#home" class="navbar-link has-after">Home</a>
+            </li>
+            <li>
+              <a href="collection.html" class="navbar-link has-after">Collection</a>
+            </li>
+            <li>
+              <a href="about.html" class="navbar-link has-after">About</a>
+            </li>
+
+            <li>
+              <a href="blog.html" class="navbar-link has-after">Blog</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  
+	<div id="id01" class="modal">
+
+		<form class="modal-content animate"
+			action="/action_page.php">
+			<div class="imgcontainer">
+				<span onclick="document.getElementById('id01').style.display='none'"
+					class="close"
+					title="Close Modal">×</span>
+				<img src=
+"https://media.geeksforgeeks.org/wp-content/cdn-uploads/20190710102234/download3.png"
+					alt="Avatar" class="avatar">
+			</div>
+
+			<div class="modal-container">
+				<label><b>Username</b></label>
+				<input type="text" placeholder="Enter Username"
+					name="uname" required>
+
+				<label><b>Password</b></label>
+				<input type="password" placeholder="Enter Password"
+					name="psw" required>
+
+				<button type="submit" class="modal-button">Login</button>
+				<input type="checkbox" checked="checked">Remember me
+			</div>
+
+			<div class="modal-container"
+				style="background-color:#f1f1f1">
+				<button type="button"
+						onclick="document.getElementById('id01').style.display='none'"
+					class="cancelbtn">Cancel</button>
+				<span class="psw">Forgot <a href="#">password?</a></span>
+			</div>
+		</form>
+	</div>
+
+  <!-- 
+    - #MOBILE NAVBAR
+  -->
+
+  <div class="sidebar">
+    <div class="mobile-navbar" data-navbar>
+      <div class="wrapper">
+        <a href="#" class="logo">
+          <img src="./assets/images/logo.png" width="179" height="26" alt="MonTrésor" />
+        </a>
+
+        <button class="nav-close-btn" aria-label="close menu" data-nav-toggler>
+          <ion-icon name="close-outline" aria-hidden="true"></ion-icon>
+        </button>
+      </div>
+
+      <ul class="navbar-list">
+        <li>
+          <a href="#home" class="navbar-link" data-nav-link>Home</a>
+        </li>
+        <li>
+          <a href="collection.html" class="navbar-link" data-nav-link>Collection</a>
+        </li>
+        <li>
+          <a href="about.html" class="navbar-link" data-nav-link>About</a>
+        </li>
+        <li>
+          <a href="blog.html" class="navbar-link" data-nav-link>Blog</a>
+        </li>
+      </ul>
+    </div>
+
+    <div class="overlay" data-nav-toggler data-overlay></div>
+  </div>
+
+  <main>
+    <article>
+      <!-- 
+        - #HERO
+      -->
+
+      <section class="section hero" id="home" aria-label="hero" data-section>
+        <div class="container">
+          <ul class="has-scrollbar">
+            <li class="scrollbar-item">
+              <div class="hero-card has-bg-image" style="
+                    background-image: url('./assets/images/hero-banner-1.png');
+                  ">
+                <div class="card-content">
+                  <h1 class="h1 hero-title">
+                    Trending Accessories<br />
+                    MODERN
+                    <br />SUNGLASSES
+                  </h1>
+
+                  <p class="hero-text">
+                    <br />
+                  </p>
+
+                  <p class="price">Starting at $7.99</p>
+
+                  <a href="shop.html" class="btn btn-primary">Shop Now</a>
+                </div>
+              </div>
+            </li>
+
+            <li class="scrollbar-item">
+              <div class="hero-card has-bg-image" style="
+                    background-image: url('./assets/images/hero-banner-2.png');
+                  ">
+                <div class="card-content">
+                  <h1 class="h1 hero-title">
+                    NEW<br />
+                    ARRIVALS<br />
+                    
+                    <br />
+                  </h1>
+
+                  <p class="hero-text">
+                    <br />
+                    upto<br />
+                    50%
+                    <br />
+                  </p>
+
+                  <p class="price"></p>
+
+                  <a href="shop.html" class="btn btn-primary">Shop Now</a>
+                </div>
+              </div>
+            </li>
+
+            <li class="scrollbar-item">
+              <div class="hero-card has-bg-image" style="
+                    background-image: url('./assets/images/hero-banner-3.png');
+                  ">
+                <div class="card-content">
+                  <h1 class="h1 hero-title">
+                    NEW<br />
+                    COLLECTION
+                    <br />
+                    <br />
+                  </h1>
+
+                  <p class="hero-text">
+                    <br />
+                    upto<br />
+                    50% Off
+                    <br />
+                  </p>
+
+                  <p class="price"></p>
+
+                  <a href="shop.htlml" class="btn btn-primary">Shop Now</a>
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- 
+        - #COLLECTION
+      -->
+
+      <section class="section collection" id="collection" aria-label="collection" data-section>
+        <div class="container">
+          <h2 class="h2-large section-title">
+            Elevate Your Style, Empower Your Confidence!
+          </h2>
+          <br />
+          <br />
+          <ul class="collection-list">
+            <li>
+              <div class="collection-card has-before hover:shine">
+                <h2 class="h2 card-title">Summer Collection</h2>
+
+                <p class="card-text">Starting at $17.99</p>
+
+                <a href="shop.html" class="btn-link">
+                  <span class="span">Shop Now</span>
+
+                  <ion-icon name="arrow-forward" aria-hidden="true"></ion-icon>
+                </a>
+
+                <div class="has-bg-image" style="
+                      background-image: url('./assets/images/collection-1.jpg');
+                    "></div>
+              </div>
+            </li>
+
+            <li>
+              <div class="collection-card has-before hover:shine">
+                <h2 class="h2 card-title">What’s New?</h2>
+
+                <p class="card-text">At $7.5 only</p>
+
+                <a href="shop.html" class="btn-link">
+                  <span class="span">Discover Now</span>
+
+                  <ion-icon name="arrow-forward" aria-hidden="true"></ion-icon>
+                </a>
+
+                <div class="has-bg-image" style="
+                      background-image: url('./assets/images/collection-2.jpg');
+                    "></div>
+              </div>
+            </li>
+
+            <li>
+              <div class="collection-card has-before hover:shine">
+                <h2 class="h2 card-title">Buy 1 Get 1</h2>
+
+                <p class="card-text">Starting at $7.99</p>
+
+                <a href="shop.html" class="btn-link">
+                  <span class="span">Discover Now</span>
+
+                  <ion-icon name="arrow-forward" aria-hidden="true"></ion-icon>
+                </a>
+
+                <div class="has-bg-image" style="
+                      background-image: url('./assets/images/collection-3.jpg');
+                    "></div>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- 
+        - #BANNER
+      -->
+
+      <section class="section banner" aria-label="banner" data-section>
+        <div class="container">
+          <h2 class="h2-large section-title">
+            Find Your Fashion, Define Your Story!
+          </h2>
+          <br />
+          <br />
+
+          <ul class="banner-list">
+            <li>
+              <div class="banner-card banner-card-1 has-before hover:shine">
+                <p class="card-subtitle">New Collection</p>
+
+                <h2 class="h2 card-title">Discover Our Summmer Collection</h2>
+
+                <a href="collection.html" class="btn btn-secondary">Explore More</a>
+
+                <div class="has-bg-image" style="
+                      background-image: url('./assets/images/banner-1.png');
+                    "></div>
+              </div>
+            </li>
+
+            <li>
+              <div class="banner-card banner-card-2 has-before hover:shine">
+                <h2 class="h2 card-title">25% off Everything</h2>
+
+                <p class="card-text">
+                  Clothes with extended range in colors for every human.
+                </p>
+
+                <a href="collection.html" class="btn btn-secondary">Shop Sale</a>
+
+                <div class="has-bg-image" style="
+                      background-image: url('./assets/images/banner-2.png');
+                    "></div>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- 
+        - #FEATURE
+      -->
+
+      <section class="section feature" aria-label="feature" data-section>
+        <div class="container">
+          <h2 class="h2-large section-title">Why Shop with MonTrésor?</h2>
+
+          <ul class="flex-list">
+            <li class="flex-item">
+              <div class="feature-card">
+                <img src="./assets/images/feature-1.svg" width="204" height="236" loading="lazy" alt="Guaranteed PURE"
+                  class="card-icon" />
+
+                <h3 class="h3 card-title">Free Shipping</h3>
+
+                <p class="card-text">On All Order Over $599</p>
+              </div>
+            </li>
+
+            <li class="flex-item">
+              <div class="feature-card">
+                <img src="./assets/images/feature-2.svg" width="204" height="236" loading="lazy"
+                  alt="Completely Cruelty-Free" class="card-icon" />
+
+                <h3 class="h3 card-title">Easy Returns</h3>
+
+                <p class="card-text">30 Day Returns Policy</p>
+              </div>
+            </li>
+
+            <li class="flex-item">
+              <div class="feature-card">
+                <img src="./assets/images/feature-3.svg" width="204" height="236" loading="lazy"
+                  alt="Ingredient Sourcing" class="card-icon" />
+
+                <h3 class="h3 card-title">Secure Payment</h3>
+
+                <p class="card-text">100% Secure Gaurantee</p>
+              </div>
+            </li>
+            <li class="flex-item">
+              <div class="feature-card">
+                <img src="./assets/images/feature-4.svg" width="204" height="236" loading="lazy"
+                  alt="Ingredient Sourcing" class="card-icon" />
+
+                <h3 class="h3 card-title">Special Support</h3>
+
+                <p class="card-text">24/7 Dedicated Support</p>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- 
+        - #OFFER
+      -->
+
+      <section class="section offer" id="offer" aria-label="offer" data-section>
+
+        <div class="container">
+
+
+          <figure class="offer-banner">
+            <video source src="./assets/images/offer-banner-1.mp4" width="305" height="408" loading="lazy"
+              alt="offer products" autoplay muted loop class="w-100" type="video/mp4"></video>
+
+            <video source src="./assets/images/offer-banner-2.mp4" width="450" height="625" loading="lazy"
+              alt="offer products" autoplay muted loop class="w-100" type="video/mp4"></video>
+          </figure>
+
+          <div class="offer-content">
+            <p class="offer-subtitle">
+              <span class="span">Discover Your Signature Look</span>
+            </p>
+
+            <div class="countdown">
+              <p class="section-text">
+                From everyday essentials to statement pieces, we offer a
+                diverse range of options that cater to every style preference,
+                occasion, and mood. Whether you're searching for the perfect
+                little black dress, a cozy sweater for chilly days, or the
+                finishing touch to complete your look, we've got you covered.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 
+        - #BLOG
+      -->
+
+      <section class="section blog" id="blog" aria-label="blog" data-section>
+        <div class="container">
+          <h2 class="h2-large section-title">Latest Fashion News</h2>
+
+          <ul class="flex-list">
+            <li class="flex-item">
+              <div class="blog-card">
+                <figure class="card-banner img-holder has-before hover:shine" style="--width: 700; --height: 450">
+                  <img src="./assets/images/blog-1.jpg" width="700" height="450" loading="lazy" alt="Find a Store"
+                    class="img-cover" />
+                </figure>
+
+                <h3 class="h3">
+                  <a href="blog.html" class="card-title">
+                    Worthy Cyber Monday Fashion From MonTrésor</a>
+                </h3>
+
+                <a href="blog.html" class="btn-link">
+                  <span class="span">Explore</span>
+
+                  <ion-icon name="arrow-forward-outline" aria-hidden="true"></ion-icon>
+                </a>
+              </div>
+            </li>
+
+            <li class="flex-item">
+              <div class="blog-card">
+                <figure class="card-banner img-holder has-before hover:shine" style="--width: 700; --height: 450">
+                  <img src="./assets/images/blog-2.jpg" width="700" height="450" loading="lazy" alt="From Our Blog"
+                    class="img-cover" />
+                </figure>
+
+                <h3 class="h3">
+                  <a href="blog.html" class="card-title">Breaking Fashion News: Stay Ahead of the Trends</a>
+                </h3>
+
+                <a href="blog.html" class="btn-link">
+                  <span class="span">Check</span>
+
+                  <ion-icon name="arrow-forward-outline" aria-hidden="true"></ion-icon>
+                </a>
+              </div>
+            </li>
+
+            <li class="flex-item">
+              <div class="blog-card">
+                <figure class="card-banner img-holder has-before hover:shine" style="--width: 700; --height: 450">
+                  <img src="./assets/images/blog-3.jpg" width="700" height="450" loading="lazy" alt="Our Story"
+                    class="img-cover" />
+                </figure>
+
+                <h3 class="h3">
+                  <a href="blog.html" class="card-title">
+                    Unique Ideas for Fashion You Haven’t heard yet
+                  </a>
+                </h3>
+
+                <a href="blog.html" class="btn-link">
+                  <span class="span">Explore</span>
+
+                  <ion-icon name="arrow-forward-outline" aria-hidden="true"></ion-icon>
+                </a>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </section>
+    </article>
+  </main>
+
+  <!-- 
+    - #FOOTER
+  -->
+
+  <footer class="footer" data-section>
+    <div class="container">
+      <div class="footer-top">
+        <ul class="footer-list">
+          <li>
+            <p class="footer-list-title">
+              <a href="index.html" class="logo">
+                <img src="./assets/images/logo.png" width="179" height="26" loading="lazy" alt="MonTrésor" />
+              </a>
+            </p>
+            <br />
+          </li>
+
+          <li>
+            <p class="footer-list-text">
+              MonTresor is a fashion theme for presents a complete wardrobe of
+              uniquely crafted Casuals, Edgy Denims, & Accessories inspired
+              from the most contemporary.
+            </p>
+          </li>
+
+          <li>
+            <p class="footer-list-text bold">+391 (0)35 2568 4593</p>
+          </li>
+
+          <li>
+            <p class="footer-list-text">hello@domain.com</p>
+          </li>
+        </ul>
+
+        <ul class="footer-list">
+          <li>
+            <p class="footer-list-title">Infomation</p>
+          </li>
+
+          <li>
+            <a href="#" class="footer-link">Start a Return</a>
+          </li>
+
+          <li>
+            <a href="#" class="footer-link">Payment Type</a>
+          </li>
+
+          <li>
+            <a href="#" class="footer-link">Contact Us</a>
+          </li>
+
+          <li>
+            <a href="#" class="footer-link">Shipping FAQ</a>
+          </li>
+
+          <li>
+            <a href="#" class="footer-link">Terms & Conditions</a>
+          </li>
+
+          <li>
+            <a href="#" class="footer-link">Privacy Policy</a>
+          </li>
+        </ul>
+
+        <ul class="footer-list">
+          <li>
+            <p class="footer-list-title">Useful links</p>
+          </li>
+
+          <li>
+            <a href="#" class="footer-link">New Products</a>
+          </li>
+
+          <li>
+            <a href="#" class="footer-link">Best Sellers</a>
+          </li>
+
+          <li>
+            <a href="#" class="footer-link">Watches & Accesories</a>
+          </li>
+
+          <li>
+            <a href="#" class="footer-link">Men & Women Shoe</a>
+          </li>
+
+          <li>
+            <a href="#" class="footer-link">Complete your look</a>
+          </li>
+
+          <li>
+            <a href="#" class="footer-link">Offers</a>
+          </li>
+        </ul>
+
+        <div class="footer-list">
+          <p class="newsletter-title">Subscribe Newsletter</p>
+
+          <p class="newsletter-text">
+            Enter your email below to be the first to know about new
+            collections and product launches.
+          </p>
+
+          <form action="" class="newsletter-form">
+            <input type="email" name="email_address" placeholder="Enter your email address" required
+              class="email-field" />
+
+            <button type="submit" class="btn btn-primary">Subscribe</button>
+          </form>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div class="wrapper">
+          <p class="copyright">&copy; 2024. All rights Reserved.</p>
+
+          <ul class="social-list">
+            <li>
+              <a href="#" class="social-link">
+                <ion-icon name="logo-twitter"></ion-icon>
+              </a>
+            </li>
+
+            <li>
+              <a href="#" class="social-link">
+                <ion-icon name="logo-facebook"></ion-icon>
+              </a>
+            </li>
+
+            <li>
+              <a href="#" class="social-link">
+                <ion-icon name="logo-instagram"></ion-icon>
+              </a>
+            </li>
+
+            <li>
+              <a href="#" class="social-link">
+                <ion-icon name="logo-youtube"></ion-icon>
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <img src="./assets/images/pay.png" width="313" height="28" alt="available all payment method" class="w-100" />
+      </div>
+    </div>
+  </footer>
+
+  <!-- 
+    - #BACK TO TOP
+  -->
+
+  <a href="#top" class="back-top-btn" aria-label="back to top" data-back-top-btn>
+    <ion-icon name="arrow-up" aria-hidden="true"></ion-icon>
+  </a>
+
+  <!-- 
+    - custom js link
+  -->
+  <script src="./assets/js/script.js" defer></script>
+
+  <!-- 
+    - ionicon link
+  -->
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+</body>
+
+</html>

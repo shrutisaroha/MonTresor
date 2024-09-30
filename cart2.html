@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping Cart</title>
+    <style>
+        .product {
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin: 10px;
+        }
+        /* Modal styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgb(0,0,0);
+            background-color: rgba(0,0,0,0.4);
+            padding-top: 60px;
+        }
+        .modal-content {
+            background-color: #fefefe;
+            margin: 5% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+        }
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+        .cart-item {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+        }
+        .remove-btn {
+            background-color: red;
+            color: white;
+            border: none;
+            padding: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+<div class="product" data-id="1" data-name="Product 1" data-price="10.00">
+    <h2>Product 1</h2>
+    <p>Price: $10.00</p>
+    <button class="add-to-cart">Add to Cart</button>
+</div>
+
+<div class="product" data-id="2" data-name="Product 2" data-price="20.00">
+    <h2>Product 2</h2>
+    <p>Price: $20.00</p>
+    <button class="add-to-cart">Add to Cart</button>
+</div>
+
+<div class="product" data-id="3" data-name="Product 3" data-price="30.00">
+    <h2>Product 3</h2>
+    <p>Price: $30.00</p>
+    <button class="add-to-cart">Add to Cart</button>
+</div>
+
+<button id="cartButton">View Cart</button>
+
+<!-- The Modal -->
+<div id="cartModal" class="modal">
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        <h2>Your Cart</h2>
+        <div id="cartItems"></div>
+        <button onclick="clearCart()">Clear Cart</button>
+    </div>
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const addToCartButtons = document.querySelectorAll('.add-to-cart');
+        addToCartButtons.forEach(button => {
+            button.addEventListener('click', event => {
+                const productElement = event.target.closest('.product');
+                const id = productElement.getAttribute('data-id');
+                const name = productElement.getAttribute('data-name');
+                const price = parseFloat(productElement.getAttribute('data-price'));
+                addToCart(id, name, price);
+            });
+        });
+
+        function addToCart(id, name, price) {
+            // Get the cart from session storage
+            let cart = sessionStorage.getItem('cart');
+            cart = cart ? JSON.parse(cart) : [];
+
+            // Check if the product is already in the cart
+            const existingProductIndex = cart.findIndex(product => product.id === id);
+            if (existingProductIndex >= 0) {
+                // If the product exists, increase the quantity
+                cart[existingProductIndex].quantity += 1;
+            } else {
+                // If the product doesn't exist, add it to the cart
+                const product = { id, name, price, quantity: 1 };
+                cart.push(product);
+            }
+
+            // Save the updated cart to session storage
+            sessionStorage.setItem('cart', JSON.stringify(cart));
+
+            // Display the cart
+            displayCart();
+        }
+
+        function displayCart() {
+            // Get the cart from session storage
+            const cart = sessionStorage.getItem('cart');
+            const cartItems = document.getElementById('cartItems');
+            cartItems.innerHTML = '';
+
+            if (cart) {
+                const cartArray = JSON.parse(cart);
+                cartArray.forEach(item => {
+                    const itemElement = document.createElement('div');
+                    itemElement.className = 'cart-item';
+                    itemElement.innerHTML = `
+                        <span>${item.name} - $${item.price} x ${item.quantity}</span>
+                        <button class="remove-btn" onclick="removeFromCart(${item.id})">Remove</button>
+                    `;
+                    cartItems.appendChild(itemElement);
+                });
+            } else {
+                cartItems.innerText = 'Cart is empty';
+            }
+        }
+
+        window.removeFromCart = function(id) {
+            // Get the cart from session storage
+            let cart = sessionStorage.getItem('cart');
+            cart = cart ? JSON.parse(cart) : [];
+
+            // Find the product in the cart
+            const productIndex = cart.findIndex(product => product.id == id);
+            if (productIndex >= 0) {
+                // Remove the product from the cart
+                cart.splice(productIndex, 1);
+                // Save the updated cart to session storage
+                sessionStorage.setItem('cart', JSON.stringify(cart));
+                // Display the updated cart
+                displayCart();
+            }
+        }
+
+        window.clearCart = function() {
+            sessionStorage.removeItem('cart');
+            displayCart();
+        }
+
+        // Get the modal
+        var modal = document.getElementById("cartModal");
+
+        // Get the button that opens the modal
+        var btn = document.getElementById("cartButton");
+
+        // Get the <span> element that closes the modal
+        var span = document.getElementsByClassName("close")[0];
+
+        // When the user clicks the button, open the modal
+        btn.onclick = function() {
+            displayCart();
+            modal.style.display = "block";
+        }
+
+        // When the user clicks on <span> (x), close the modal
+        span.onclick = function() {
+            modal.style.display = "none";
+        }
+
+        // When the user clicks anywhere outside of the modal, close it
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+
+        // Display the cart on page load
+        displayCart();
+    });
+</script>
+
+</body>
+</html>
